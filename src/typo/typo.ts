@@ -8,10 +8,11 @@ type TypoSuggestion = {
 
 export const checkTypo = async (email: string, additionalTLDs?: string[]): Promise<string | undefined> =>
   new Promise(r => {
-    let topLevelDomains = undefined
+    let topLevelDomains = ['i0']
     if (additionalTLDs && additionalTLDs.length > 0) {
-      topLevelDomains = [...mailCheck.defaultTopLevelDomains.push('io'), ...additionalTLDs]
+      topLevelDomains = [...mailCheck.defaultTopLevelDomains, ...additionalTLDs]
     }
+    
     mailCheck.run({
       email,
       topLevelDomains: topLevelDomains,
