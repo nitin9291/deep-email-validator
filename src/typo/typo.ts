@@ -10,7 +10,7 @@ export const checkTypo = async (email: string, additionalTLDs?: string[]): Promi
   new Promise(r => {
     let topLevelDomains = ['io']
     if (additionalTLDs && additionalTLDs.length > 0) {
-      topLevelDomains = [...mailCheck.defaultTopLevelDomains.push('io'), ...additionalTLDs]
+      topLevelDomains = [...mailCheck.defaultTopLevelDomains, ...additionalTLDs]
     }
     
     mailCheck.run({
